@@ -16,6 +16,11 @@ Module.register('MMM-Patch-Notes',
 	{
 		Log.info('Starting module: ' + this.name);
 		this.sendSocketNotification('START', this.config);
+		this.patch = {
+			gameTitle: "",
+			version: "",
+			body: ""
+		}
 	},
 
 	getStyles: function() {
@@ -24,16 +29,30 @@ Module.register('MMM-Patch-Notes',
 
 	getDom: function() {
 		const wrapper = document.createElement("div");
-		const hello = document.createElement("p");
-		hello.innerHTML = "Hello World.";
-		wrapper.appendChild(hello);
+		wrapper.id = "patchNotesContainer";
+
+		const gameTitle = document.createElement("h1");
+		gameTitle.id = "gameTitle";
+		gameTitle.innerHTML = this.patch.gameTitle;
+		wrapper.appendChild(gameTitle);
+
+		const version = document.createElement("h2");
+		version.id = "patchVersion";
+		version.innerHTML = this.patch.version;
+		wrapper.appendChild(version);
+
+		const body = document.createElement("p");
+		body.id = "patchBody";
+		body.innerHTML = this.patch.body;
+		wrapper.appendChild(body);
+
 		return wrapper;
 	},
 
-	notificationReceived: function(notification, payload, sender) {
-    },
-
     socketNotificationReceived: function(notification, payload) {
-
+		if (notification === "UPDATE_PATCH_NOTES") {
+			this.patch = payload;
+			this.updateDom(1000);
+		}
     }
 });
