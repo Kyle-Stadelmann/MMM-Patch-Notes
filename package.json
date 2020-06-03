@@ -1,0 +1,28 @@
+{
+  "name": "Magic-Mirror-Module-Patch-Notes",
+  "version": "1.0.0",
+  "description": "Game patch notes module for Magic Mirror",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kyle-Stadelmann/MMM-Patch-Notes"
+  },
+  "keywords": [
+    "magic mirror",
+    "smart mirror",
+    "game",
+    "patch",
+    "notes",
+    "updates",
+    "overwatch",
+    "module"
+  ],
+  "author": "Kyle Stadelmann and Gary Chew",
+  "contributors": "https://github.com/Kyle-Stadelmann/MMM-Patch-Notes/graphs/contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kyle-Stadelmann/MMM-Patch-Notes/issues"
+  },
+  "homepage": "https://github.com/Kyle-Stadelmann/MMM-Patch-Notes#readme",
+  "dependencies": {
+  }
+}
