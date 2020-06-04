@@ -16,11 +16,7 @@ Module.register('MMM-Patch-Notes',
 	{
 		Log.info('Starting module: ' + this.name);
 		this.sendSocketNotification('START', this.config);
-		this.patch = {
-			gameTitle: "",
-			version: "",
-			body: ""
-		}
+		this.patch = null;
 	},
 
 	getStyles: function() {
@@ -31,34 +27,35 @@ Module.register('MMM-Patch-Notes',
 		const wrapper = document.createElement("div");
 		wrapper.id = "patchNotesContainer";
 
-		const gameTitle = document.createElement("h2");
-		gameTitle.id = "gameTitle";
-		gameTitle.innerHTML = this.patch.gameTitle;
-		wrapper.appendChild(gameTitle);
+		if (this.patch) {
+			const gameTitle = document.createElement("h2");
+			gameTitle.id = "gameTitle";
+			gameTitle.innerHTML = this.patch.gameTitle;
+			wrapper.appendChild(gameTitle);
 
-		const version = document.createElement("h2");
-		version.id = "patchVersion";
-		version.innerHTML = this.patch.date + ' - ' + this.patch.version;
-		wrapper.appendChild(version);
+			const version = document.createElement("h2");
+			version.id = "patchVersion";
+			version.innerHTML = this.patch.date + ' - ' + this.patch.version;
+			wrapper.appendChild(version);
 
-		const img = document.createElement("IMG");
-		img.id = "gameImage";
-		img.setAttribute('src', this.patch.img);
-		img.setAttribute("width", "150");
-		img.setAttribute("height", "150");
-		wrapper.appendChild(img);
+			const img = document.createElement("IMG");
+			img.id = "gameImage";
+			img.setAttribute('src', this.patch.img);
+			img.setAttribute("width", "150");
+			img.setAttribute("height", "150");
+			wrapper.appendChild(img);
 
-		const description = document.createElement("h1");
-		description.id = "moduleDescription";
-		description.innerHTML = '(Latest patch)';
-		wrapper.appendChild(description);
+			const description = document.createElement("h3");
+			description.id = "moduleDescription";
+			description.innerHTML = '(Latest patch)';
+			wrapper.appendChild(description);
 
-		/*
-		const body = document.createElement("p");
-		body.id = "patchBody";
-		body.innerHTML = this.patch.body;
-		wrapper.appendChild(body);
-		*/
+			const body = document.createElement("div");
+			Log.log(this.patch.body);
+			body.id = "patchBody";
+			body.innerHTML = this.patch.body;
+			wrapper.appendChild(body);
+		}
 
 		return wrapper;
 	},

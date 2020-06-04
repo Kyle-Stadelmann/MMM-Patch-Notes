@@ -1,26 +1,19 @@
-h1, h2, p {
-    margin-block-start: .2em;
-    margin-block-end: .2em;
-}
-
-h1 {
-    font-size: 70%;
-}
-
-h2 {
-    font-size: 60%;
-}
-
-p {
-    display: block;
-    font-size: 50%;
-}
-
 #patchNotesContainer {
+    font-size: 40%;
     line-height: normal;
 }
 
+#patchNotesContainer h1, h2, h3, h4, p, ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
 #patchBody {
+    text-align: left;
     margin-inline-start: 2em;
     margin-inline-end: 2em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    display: block;
+    font-size: 100%;
 }
