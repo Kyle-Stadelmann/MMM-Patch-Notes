@@ -31,20 +31,34 @@ Module.register('MMM-Patch-Notes',
 		const wrapper = document.createElement("div");
 		wrapper.id = "patchNotesContainer";
 
-		const gameTitle = document.createElement("h1");
+		const gameTitle = document.createElement("h2");
 		gameTitle.id = "gameTitle";
 		gameTitle.innerHTML = this.patch.gameTitle;
 		wrapper.appendChild(gameTitle);
 
 		const version = document.createElement("h2");
 		version.id = "patchVersion";
-		version.innerHTML = this.patch.version;
+		version.innerHTML = this.patch.date + ' - ' + this.patch.version;
 		wrapper.appendChild(version);
 
+		const img = document.createElement("IMG");
+		img.id = "gameImage";
+		img.setAttribute('src', this.patch.img);
+		img.setAttribute("width", "150");
+		img.setAttribute("height", "150");
+		wrapper.appendChild(img);
+
+		const description = document.createElement("h1");
+		description.id = "moduleDescription";
+		description.innerHTML = '(Latest patch)';
+		wrapper.appendChild(description);
+
+		/*
 		const body = document.createElement("p");
 		body.id = "patchBody";
 		body.innerHTML = this.patch.body;
 		wrapper.appendChild(body);
+		*/
 
 		return wrapper;
 	},
