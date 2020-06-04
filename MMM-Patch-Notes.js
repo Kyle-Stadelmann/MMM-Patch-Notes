@@ -51,7 +51,6 @@ Module.register('MMM-Patch-Notes',
 			wrapper.appendChild(description);
 
 			const body = document.createElement("div");
-			Log.log(this.patch.body);
 			body.id = "patchBody";
 			body.innerHTML = this.patch.body;
 			wrapper.appendChild(body);
